@@ -1,0 +1,55 @@
+.grid {
+    display: grid;
+    grid-template-columns: 2% 3% 90% 3% 2%;
+    gap: 0px;
+}
+
+.grid img {
+    width: 100%;
+    height: auto;
+    grid-column: 3;
+    transition: box shadow 0.3s ease;
+}
+.grid img:hover {
+    box-shadow: 0 4 10px rgba(0, 0, 0, 0.3);
+}
+
+.grid img:nth-child(even) {
+    border: 5px dashed orange;
+}
+
+.grid img:first-child {
+    border: 5px solid green;
+    padding: 10px;
+}
+
+/* Specifically target the last image in the grid to span three columns */
+.grid img:last-child {
+    grid-column: span 3;
+}
+
+@media (max-width: 750px) {
+    .grid {
+        grid-template-columns: 2% 44% 4% 44% 2%;
+    }
+    .grid img:nth-child(odd) {
+        grid-column: 2;
+    }
+    .grid img:nth-child(even) {
+        grid-column: 4;
+    }
+    .grid img:first-child {
+        grid-column: 2;
+        border: 5px solid green;
+        padding: 10px;
+    }
+    .grid img:last-child {
+        grid-column: span 2;
+        width: 100%;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .grid img {
+        transition: none;
+    }
+}
